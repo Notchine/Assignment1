@@ -16,5 +16,8 @@ print("You can either ENTER the caslte, or OBSERVE your surroundings before ente
 while not vampireDefeated:
     #variable for player input,
     choice = input("What will you do? (Use the capitalised words above as your inputs for the player!) ")
-else:
-    print("You nervously stand at the entrance, unsure what to do.")
+
+    if choice == ("ENTER"):
+        print("test")
+    else:
+        print("You nervously stand at the entrance, unsure what to do.")
