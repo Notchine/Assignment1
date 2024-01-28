@@ -1,4 +1,6 @@
 #establishing values/inventory stuff
+hasBook = False
+hasFood = False
 #value changes when vampire dies, allows player to leave front door again after it shuts
 vampireDefeated = False
 #inventory list which is empty to begin with, fills up with stuff later on
@@ -24,12 +26,13 @@ while not vampireDefeated:
 
     if choice == "ENTER":
         print("You step into the dimly lit castle, the colossal door shutting slowly behind you.")
-        print("Close to the door, there are a series of NOTES laying on a table which seem to catch the eye,")
+        print("Close to the door, there are a series of loose notes laying on a floor which seem to catch the eye, leading to a room on the left.")
+        print("There is also a door to the right, but it seems significantly less intersting to the eye.")
 
         # Door choice loop
         while True:
             door_choice = input("Which door will you choose? (LEFT or RIGHT): ")
-
+            door_choice = door_choice.upper()
             if door_choice == "LEFT":
                 print("You enter the left door and find yourself in a grand library, thick cobwebs coating every inch.")
                 print("There's a strangely inviting dusty book on the table. Do you READ it or LEAVE the library?")
@@ -37,18 +40,33 @@ while not vampireDefeated:
                 # Library choice loop
                 while True:
                     library_choice = input("Your choice (READ or LEAVE): ")
-
-                    if library_choice == "READ":
+                    library_choice = library_choice.upper()
+                    if library_choice == "READ" and hasBook == False:
                         print("The handy book seems to cover the weaknesses of vampires. How handy!")
                         print("After a quick read, you learn to harness the arcane powers of sunlight.")
                         print("Obtained: DAZZLING SUNLIGHT")
                         inventory.append("DAZZLING SUNLIGHT")
+                        hasBook = True
+                        print("You decide to leave.")
                         break  # Exit the library choice loop
+                    elif library_choice == "READ" and hasBook == True:
+                        print("You have already read this book. You decide to leave.")
+                        break
                     elif library_choice == "LEAVE":
                         print("You decide to leave the library and continue your exploration.")
                         break  # Exit the library choice loop
                     else:
-                        print("Invalid choice. You stumble back into the hallway.")
+                        print("Invalid choice.")
+
+            elif door_choice == "RIGHT":
+                print("You enter the right door and find yourself in a pristine dining room. Despite it's perfectly maintained appearance, you seem to be alone.")
+                print("There are piles of FOOD laying on the table in near endless supply, ")
+
+                # Dining Hall choice loop
+                while True:
+                    print("")
+
+                    break #Exit the dining hall
 
                 break  # Exit the door choice loop
     elif choice == "OBSERVE":
