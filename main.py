@@ -55,22 +55,30 @@ while not vampireDefeated:
                     elif library_choice == "LEAVE":
                         print("You decide to leave the library and continue your exploration.")
                         break  # Exit the library choice loop
+                    elif library_choice == "INVENTORY":
+                        print("In your inventory, you have: ", inventory)
                     else:
                         print("Invalid choice.")
 
             elif door_choice == "RIGHT":
                 print("You enter the right door and find yourself in a pristine dining room. Despite it's perfectly maintained appearance, you seem to be alone.")
-                print("There are piles of FOOD laying on the table in near endless supply, ")
+                print("There are piles of FOOD laying on the table in near endless supply, and a sleeping ZOMBIE servant laying on the ground protecting a door. It would be wise to not approach before being well armed.")
 
                 # Dining Hall choice loop
                 while True:
-                    print("")
+                    dining_choice = input("")
+                    dining_choice = dining_choice.upper()
 
-                    break #Exit the dining hall
+                    if dining_choice == "FOOD" and hasFood == False:
 
+
+
+                break   #Exit the dining hall
+            elif door_choice == "INVENTORY":
+                print("In your inventory, you have: ", inventory)
                 break  # Exit the door choice loop
     elif choice == "OBSERVE":
-        print("The castle stands tall, dauntingly casting a massive shadow over your entire villaige. ")
+        print("The castle stands tall, dauntingly casting a massive shadow over your entire village. ")
         print("Despite the cryptic, abandoned exterior, the visible interior seems to be surprisingly well maintained.")
 
 
