@@ -1,5 +1,3 @@
-#FOR LOOP, FUNCTION (KILL VAMPIRE), REUSE THING FROM FORTUNE HOMEWORK TO MAKE NAME FOR PORTAGONIST OUT OF RANDOM LIST
-#work om dungeon and elevator/final room
 import random
 #establishing values/inventory stuff
 hasBook = False
@@ -19,6 +17,7 @@ def killVampire():
     print("When your vision returns, all that remains is their dark cloak, resting silently in a pile of ashes.")
     print("Congratulations, " + ranName + " You have set your village free from the eternal darkness of the evil vampire!")
     input("THE END (Thanks for Playing!)")
+    quit()
 
 
 #opening, mosting just set dressing with no real key info to keep track of this early in the game
@@ -120,11 +119,37 @@ while not vampireDefeated:
                                 dungeon_choice = input("Will you pull the LEVER or EXIT from where you came?")
                                 dungeon_choice = dungeon_choice.upper()
 
+                                if dungeon_choice == "LEVER":
+                                    print("")
+                                    #THE VAMPIRES LAIR
+                                    while True:
+                                        if "DAZZLING SUNLIGHT" in inventory:
+                                            print("After the elevator ride up, you are face to face with vampire who almost immediately tries to syphon your life force upon seeing you enter his lair.")
+                                            print("Before he can fly towards you, you tear open your dusty book to unleash DAZZLING SUNLIGHT, instantly petrifying the vampire in a glorious blast of light!")
+                                            input("Press Enter to Continue...")
+                                            print(" ")
+                                            killVampire()
+                                        if "DAZZLING SUNLIGHT" not in inventory:
+                                            print("After the elevator ride up, you are presented with the eagarly awaiting vampire who quickly drains your life energy. YOU DIED.")
+                                elif dungeon_choice == "EXIT":
+                                    print("You scamper out of the room, quickly heading back up the stairs and passing the still distracted zombie.")
+                                    break
+
+                                elif door_choice == "INVENTORY":
+                                    print("In your inventory, you have: ", inventory)
+                                else:
+                                    print("Invalid choice.")
+
                             if "DAZZLING SUNLIGHT" not in inventory:
                                 print("With the sound of the zombies gnashing getting quieter, you descend a series of stairs into pure darkness. The abyss is deafeningly dark, and you can't even see your own hands infront of your face.")
                                 print("With no way to see, you stumble your way back up the stairs.")
                                 print(" ")
                                 break
+
+                            elif door_choice == "INVENTORY":
+                                print("In your inventory, you have: ", inventory)
+                            else:
+                                print("Invalid choice.")
 
                     elif dining_choice == "LEAVE":
                         print("You leave the dining hall, exiting back to the entrance of the castle.")
