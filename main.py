@@ -39,7 +39,7 @@ while not vampireDefeated:
 
                 # Library choice loop
                 while True:
-                    library_choice = input("Your choice (READ or LEAVE): ")
+                    library_choice = input("Your choice? (READ or LEAVE): ")
                     library_choice = library_choice.upper()
                     if library_choice == "READ" and hasBook == False:
                         print("The handy book seems to cover the weaknesses of vampires. How handy!")
@@ -57,8 +57,13 @@ while not vampireDefeated:
                         break  # Exit the library choice loop
                     elif library_choice == "INVENTORY":
                         print("In your inventory, you have: ", inventory)
+
+                    elif library_choice == "INVENTORY":
+                        print("In your inventory, you have: ", inventory)
+
                     else:
                         print("Invalid choice.")
+
 
             elif door_choice == "RIGHT":
                 print("You enter the right door and find yourself in a pristine dining room. Despite it's perfectly maintained appearance, you seem to be alone.")
@@ -66,17 +71,37 @@ while not vampireDefeated:
 
                 # Dining Hall choice loop
                 while True:
-                    dining_choice = input("")
+                    dining_choice = input("Your choice? (FOOD, ZOMBIE or LEAVE)")
                     dining_choice = dining_choice.upper()
 
                     if dining_choice == "FOOD" and hasFood == False:
+                        print("You take a heaping FOOD which, upon closer inspection, seems to be rotten and completely inedible.")
+                        print("Obtained: ROTTEN MEAT")
+                        inventory.append("ROTTEN MEAT")
+                        hasFood = True
+                        print("The ROTTEN MEAT squelches loudly in your pockets.")
+                    elif dining_choice == "FOOD" and hasFood == True:
+                        print("You already have more rotten meat than your stomach can handle.")
+                    elif dining_choice == "ZOMBIE" and hasFood == False:
+                        print("As you get closer to the zombie, he springs to life like a machine, grunting loudly at you.")
+                        print("He seems to be eying you like a piece of meat, and only reacts when you enter a certain radius near the door.")
+                        print("It might be a good idea to back off for now.")
+                        print("")
+                    elif dining_choice == "ZOMBIE" and hasFood == True:
+                        print("As you get closer to the zombie, he springs to life like a machine, a deeply hungry look in his dead eyes.")
+                        print("")
+                    elif dining_choice == "LEAVE":
+                        print("You leave the dining hall, exiting back to the entrance of the castle.")
+                        break  # Exit the dining hall
+                    elif door_choice == "INVENTORY":
+                        print("In your inventory, you have: ", inventory)
+                    else:
+                        print("Invalid choice.")
 
 
-
-                break   #Exit the dining hall
             elif door_choice == "INVENTORY":
                 print("In your inventory, you have: ", inventory)
-                break  # Exit the door choice loop
+
     elif choice == "OBSERVE":
         print("The castle stands tall, dauntingly casting a massive shadow over your entire village. ")
         print("Despite the cryptic, abandoned exterior, the visible interior seems to be surprisingly well maintained.")
