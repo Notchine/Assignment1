@@ -1,4 +1,6 @@
 #FOR LOOP, FUNCTION (KILL VAMPIRE), REUSE THING FROM FORTUNE HOMEWORK TO MAKE NAME FOR PORTAGONIST OUT OF RANDOM LIST
+#work om dungeon and elevator/final room
+import random
 #establishing values/inventory stuff
 hasBook = False
 hasFood = False
@@ -6,10 +8,21 @@ hasFood = False
 vampireDefeated = False
 #inventory list which is empty to begin with, fills up with stuff later on
 inventory = []
-#Name list (randomly pick one of them to be player)
-nameList = {"Daniel", "John", "Tyler", "Marcel", "Markus", "Anthony", "Ethyn", "David"}
+#Name dictionary thing (randomly pick one of them to be player)
+nameList = {"Daniel": None, "John": None, "Tyler": None, "Marcel": None, "Markus": None, "Anthony": None, "Ethyn": None, "David": None}
+ranName = random.choice(list(nameList.keys()))
+
+#cool function for killing vampire
+def killVampire():
+    vampireDefeated = True
+    print("With a mighty blast of concentrated sunlight, the vampire is instantly obliterated in a blinding flash.")
+    print("When your vision returns, all that remains is their dark cloak, resting silently in a pile of ashes.")
+    print("Congratulations, " + ranName + " You have set your village free from the eternal darkness of the evil vampire!")
+    input("THE END (Thanks for Playing!)")
+
 
 #opening, mosting just set dressing with no real key info to keep track of this early in the game
+print("Your name is: " + ranName)
 print("You stand at the precipice of the vampires castle, the screeching ")
 print("of bats echoing as the massive front door slides open on its own.")
 print("You have one single task. Defeat the vampire within, finally setting your village free from his darkness.")
@@ -21,7 +34,7 @@ print("You can also check your inventory at any time by typing INVENTORY in the 
 while not vampireDefeated:
     #variable for player input,
     print("")
-    choice = input("What will you do? (Use the capitalised words above as your inputs for the player! Also, you can OBSERVE in any area, even if not mentioned.) ")
+    choice = input("What will you do? (Use the capitalised words above as your inputs for the player! Also, you can OBSERVE or check your INVENTORY in any area, even if not mentioned.) ")
 
     #Converts input to uppercase
     choice = choice.upper()
@@ -87,16 +100,23 @@ while not vampireDefeated:
                         print("As you get closer to the zombie, he springs to life like a machine, grunting loudly at you.")
                         print("He seems to be eying you like a piece of meat, and only reacts when you enter a certain radius near the door.")
                         print("It might be a good idea to back off for now.")
-                        print("")
+                        print("You sprint back to the previous room, out of fear.")
+                        break #its OVER
                     elif dining_choice == "ZOMBIE" and hasFood == True:
                         print("As you get closer to the zombie, he springs to life like a machine, a deeply hungry look in his dead eyes.")
                         print("On reflex, you fling the food towards the zombie, distracting him completely as he hunches over and chows down.")
                         print("Seems like he'll be occupied for a while, so you move ahead to the next room.")
+                        input("Press Enter to continue...")
+                        print(" ")
 
                    #Dungeon choice loop
                         while True:
                             if "DAZZLING SUNLIGHT" in inventory:
                                 print("With the sound of the zombies gnashing getting quieter, you descend a series of stairs into pure darkness.")
+
+                            if "DAZZLING SUNLIGHT" not in inventory:
+                                print("With the sound of the zombies gnashing getting quieter, you descend a series of stairs into pure darkness.")
+                                break
 
                     elif dining_choice == "LEAVE":
                         print("You leave the dining hall, exiting back to the entrance of the castle.")
@@ -108,6 +128,9 @@ while not vampireDefeated:
 
             elif door_choice == "INVENTORY":
                 print("In your inventory, you have: ", inventory)
+
+            else:
+                print("Invalid choice.")
     elif choice == "OBSERVE":
         print("The castle stands tall, dauntingly casting a massive shadow over your entire village. ")
         print("Despite the cryptic, abandoned exterior, the visible interior seems to be surprisingly well maintained.")
