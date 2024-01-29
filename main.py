@@ -7,7 +7,7 @@ vampireDefeated = False
 #inventory list which is empty to begin with, fills up with stuff later on
 inventory = []
 #Name list (randomly pick one of them to be player)
-nameList = {"Daniel", "John", "Tyler", "Marcel", "Markus", "Anthony", "Ethyn"}
+nameList = {"Daniel", "John", "Tyler", "Marcel", "Markus", "Anthony", "Ethyn", "David"}
 
 #opening, mosting just set dressing with no real key info to keep track of this early in the game
 print("You stand at the precipice of the vampires castle, the screeching ")
