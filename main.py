@@ -31,6 +31,7 @@ print("")
 print("You can either ENTER the caslte, or OBSERVE your surroundings before entering.")
 print("You can also check your inventory at any time by typing INVENTORY in the chatbox.")
 #BIG MAIN GAME LOOP
+
 while not vampireDefeated:
     #variable for player input,
     print("")
@@ -113,9 +114,16 @@ while not vampireDefeated:
                         while True:
                             if "DAZZLING SUNLIGHT" in inventory:
                                 print("With the sound of the zombies gnashing getting quieter, you descend a series of stairs into pure darkness.")
+                                print("Thanks to your DAZZLING SUNLIGHT, you are able to make your way throuhg the abandoned dungeons.")
+                                print("As you trudge through the faded, blood splattered repeating series of cells, you make out what seems to be a rudimentary elevator.")
+                                print("It seems to activate with a LEVER which sticks out prominently.")
+                                dungeon_choice = input("Will you pull the LEVER or EXIT from where you came?")
+                                dungeon_choice = dungeon_choice.upper()
 
                             if "DAZZLING SUNLIGHT" not in inventory:
-                                print("With the sound of the zombies gnashing getting quieter, you descend a series of stairs into pure darkness.")
+                                print("With the sound of the zombies gnashing getting quieter, you descend a series of stairs into pure darkness. The abyss is deafeningly dark, and you can't even see your own hands infront of your face.")
+                                print("With no way to see, you stumble your way back up the stairs.")
+                                print(" ")
                                 break
 
                     elif dining_choice == "LEAVE":
@@ -140,5 +148,4 @@ while not vampireDefeated:
 
     else:
         print("You nervously stand at the entrance, unsure what to do.")
-
 
