@@ -1,3 +1,4 @@
+#FOR LOOP, FUNCTION (KILL VAMPIRE), REUSE THING FROM FORTUNE HOMEWORK TO MAKE NAME FOR PORTAGONIST OUT OF RANDOM LIST
 #establishing values/inventory stuff
 hasBook = False
 hasFood = False
@@ -5,7 +6,8 @@ hasFood = False
 vampireDefeated = False
 #inventory list which is empty to begin with, fills up with stuff later on
 inventory = []
-
+#Name list (randomly pick one of them to be player)
+nameList = {"Daniel", "John", "Tyler", "Marcel", "Markus", "Anthony", "Ethyn"}
 
 #opening, mosting just set dressing with no real key info to keep track of this early in the game
 print("You stand at the precipice of the vampires castle, the screeching ")
