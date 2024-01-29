@@ -28,7 +28,6 @@ while not vampireDefeated:
         print("You step into the dimly lit castle, the colossal door shutting slowly behind you.")
         print("Close to the door, there are a series of loose notes laying on a floor which seem to catch the eye, leading to a room on the left.")
         print("There is also a door to the right, but it seems significantly less intersting to the eye.")
-
         # Door choice loop
         while True:
             door_choice = input("Which door will you choose? (LEFT or RIGHT): ")
@@ -89,7 +88,14 @@ while not vampireDefeated:
                         print("")
                     elif dining_choice == "ZOMBIE" and hasFood == True:
                         print("As you get closer to the zombie, he springs to life like a machine, a deeply hungry look in his dead eyes.")
-                        print("")
+                        print("On reflex, you fling the food towards the zombie, distracting him completely as he hunches over and chows down.")
+                        print("Seems like he'll be occupied for a while, so you move ahead to the next room.")
+
+                   #Dungeon choice loop
+                        while True:
+                            if "DAZZLING SUNLIGHT" in inventory:
+                                print("With the sound of the zombies gnashing getting quieter, you descend a series of stairs into pure darkness.")
+
                     elif dining_choice == "LEAVE":
                         print("You leave the dining hall, exiting back to the entrance of the castle.")
                         break  # Exit the dining hall
@@ -98,14 +104,11 @@ while not vampireDefeated:
                     else:
                         print("Invalid choice.")
 
-
             elif door_choice == "INVENTORY":
                 print("In your inventory, you have: ", inventory)
-
     elif choice == "OBSERVE":
         print("The castle stands tall, dauntingly casting a massive shadow over your entire village. ")
         print("Despite the cryptic, abandoned exterior, the visible interior seems to be surprisingly well maintained.")
-
 
     elif choice == "INVENTORY":
         print("In your inventory, you have: ", inventory)
